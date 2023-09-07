@@ -12,7 +12,7 @@ export class AppService {
 
     const regExpStylesLinks: RegExp = /<link(.*?)href="(.*?).css"(.*?)>/g;
 
-    const styleLinks = html.data.match(regExpStylesLinks);
+    const styleLinks: Array<string> = html.data.match(regExpStylesLinks);
     let formattedArr: Array<string> = []
 
     for (let index = 0; index < styleLinks.length; index++) { 
@@ -28,7 +28,6 @@ export class AppService {
       formattedArr[index] = `${formattedDomain}${formattedArr[index]}`
     }
     
-    console.log(formattedArr);
 
     let styles: string = ''
     for (let index = 0; index < formattedArr.length; index++) {
